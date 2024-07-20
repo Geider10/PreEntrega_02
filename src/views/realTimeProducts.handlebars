@@ -1,5 +1,5 @@
 <div>
-    <form id="formu">
+    <form id="formu" method="post">
         <div class="content_btn">
             <button id="btnAdd">Add Product</button>
             <button id="btnDelete">Delete Product</button>
@@ -17,10 +17,9 @@
             <button id="btnCancel">Cancel</button>
         </div>
     </form>
+    <ul id="products">
 
-    {{#each products}}
-        <p>{{this.name}}</p>
-    {{/each}}
+    </ul>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
