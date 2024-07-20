@@ -9,11 +9,11 @@ const products = [
     {id : 4, name : "camisa", description:"", code : "0004", price: 70000, status : true, stock: 10, category: "indumentaria"}
 ]
 
-router.get("/api/products",(req,res)=>{
+router.get("/",(req,res)=>{
     const limit = parseInt(req.query.limit)
     res.json(pm.getProducts(limit))
 })
-router.get("/api/products/:id",(req,res)=>{
+router.get("/:id",(req,res)=>{
     const id = parseInt(req.params.id)
     const product = pm.getProductById(id)
     if(product){
@@ -23,19 +23,17 @@ router.get("/api/products/:id",(req,res)=>{
         res.status(404).json({error : "there is not product"})
     }
 })
-router.post("/api/products",(req,res)=>{
-    pm.addProduct(req.body)
-    res.status(201).json({succes: "post"})
+router.post("/",(req,res)=>{
+    // pm.addProduct(req.body)
+    res.status(201).json(pm.addProduct(req.body))
 })
-router.put("/api/products/:id",(req,res)=>{
+router.put("/:id",(req,res)=>{
     const id = parseInt(req.params.id)
-    pm.updateProduct(req.body,id)
-    res.status(200).json({succes: "put"})
+    res.status(200).json(pm.updateProduct(req.body,id))
 })
-router.delete("/api/products/:id",(req,res)=>{
+router.delete("/:id",(req,res)=>{
     const id = parseInt(req.params.id)
-    pm.deleteProduct(id)
-    res.status(200).json({succes: "delete"})
+    res.status(200).json( pm.deleteProduct(id))
 })
     
 export default router

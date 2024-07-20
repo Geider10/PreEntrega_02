@@ -40,9 +40,19 @@
     "category": "indumentaria"
   },
   {
-    "id": 0,
-    "name": "bicicleta",
+    "id": 5,
+    "name": "bicliclite",
     "description": "",
+    "code": "0005",
+    "price": 270000,
+    "status": true,
+    "stock": 5,
+    "category": "jugetes"
+  },
+  {
+    "id": 6,
+    "name": "bicicleta",
+    "description": "bocaboca",
     "code": "0005",
     "price": 200000,
     "status": true,

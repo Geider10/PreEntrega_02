@@ -5,7 +5,7 @@ const pm = new ProductManager()
 
 class CartsManager{
     constructor(){
-        this.contId = 0
+       
     }
     getCarts(){
         const carts = fs.loadProducts()
@@ -13,7 +13,7 @@ class CartsManager{
     }
     addCart(cart){
         const carts = fs.loadProducts()
-        const id = this.contId++
+        const id = this.getCarts().length + 1
         const newCart = {id : id,...cart}
         carts.push(newCart)
         fs.saveProducts(carts)
@@ -27,12 +27,11 @@ class CartsManager{
         const cart = carts.find(c => c.id == cartId)
         if(cart){
             const productsFilter = cart.products.some(p => p.id == productId)
-
-            if(productsFilter){
+            if(productsFilter){//increment the product
                 const c = cart.products.map(p => {
                     if(p.id == productId){
                         const pro = {id : p.id, quantity: p.quantity+1}
-                        return {...p, ...pro}//first old object, after new object, replace
+                        return {...p, ...pro}//replace: first old object, after new object
                     }
                     return p
                 })
@@ -41,7 +40,7 @@ class CartsManager{
                 fs.saveProducts(p)
                 return p
             }
-            else{
+            else{//create the product
                 const productJson = pm.getProductById(productId)
                 if(productJson){
                     const cartsFilter = carts.filter(c => c.id !== cartId)
