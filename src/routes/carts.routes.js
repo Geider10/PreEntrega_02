@@ -3,7 +3,6 @@ const router = Router()
 import CartsManager from "../controllers/cartsManager.js"
 const cm = new CartsManager()
 
-
 router.get("/",(req,res)=>{
     res.json(cm.getCarts())
 })

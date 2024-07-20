@@ -40,33 +40,9 @@
     "category": "jugetes"
   },
   {
-    "id": 7,
+    "id": 5,
     "type": "add",
-    "name": "Yoel  Frias Chambi",
-    "status": true
-  },
-  {
-    "id": 11,
-    "type": "add",
-    "name": "agsutin",
-    "status": true
-  },
-  {
-    "id": 9,
-    "type": "add",
-    "name": "Yoel",
-    "status": true
-  },
-  {
-    "id": 10,
-    "type": "add",
-    "name": "seca pelo",
-    "status": true
-  },
-  {
-    "id": 11,
-    "type": "add",
-    "name": "seca ropa",
+    "name": "teclado",
     "status": true
   }
 ]

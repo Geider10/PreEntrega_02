@@ -24,9 +24,7 @@ const restartForm = ()=>{
 formu.addEventListener("submit",(e)=> {
     e.preventDefault()
 })
-socket.on("formResponse", (message)=>{
-    console.log("respuesta servidor: ",message);
-})
+
 btnAdd.addEventListener("click",()=>{
     typeAction ="add"
     btnDelete.setAttribute("disabled", "true")
@@ -45,11 +43,15 @@ btnSend.addEventListener("click",()=>{
         socket.emit("add",{type : typeAction, name : txtName})
         restartForm()
     }
-    else if(typeAction == "delete" ){
+    else if(typeAction == "delete" && txtId.length >=1 ){
         socket.emit("delete",{type : typeAction, id: txtId})
         restartForm()
     }
 })
+btnCancel.addEventListener("click",()=>{
+    restartForm()
+})
+
 const listProducts = (product)=>{
     products.textContent = ""
     product.forEach(element => {
@@ -62,10 +64,3 @@ socket.on("get",data => listProducts(data))
 socket.on("resAdd",data => listProducts(data))
 socket.on("resDelete",data => listProducts(data))
 
-btnCancel.addEventListener("click",()=>{
-    restartForm()
-})
-const l = [
-    {id: 1, name : "franco"},
-    {id: 2, name : "agustin"}
-]
